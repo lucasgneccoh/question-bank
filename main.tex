@@ -1,0 +1,149 @@
+\documentclass[11pt,a4paper]{article}
+
+
+
+
+% ---------- Packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[official]{eurosym}
+\usepackage{pifont}
+\usepackage{dsfont}
+\usepackage{hyperref}
+\usepackage{xspace}
+
+% Math packages
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{stmaryrd} % extra symbols
+\usepackage{physics}  % derivatives, bras/kets, etc.
+\usepackage{cleveref}
+\usepackage{nicematrix}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+
+% Formatting
+\usepackage[includehead,
+nomarginpar,% We don't want any margin paragraphs
+textwidth=10cm,% Set \textwidth to 10cm
+headheight=10mm,% Set \headheight to 10mm]{geometry}
+margin=2cm
+]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem} % better lists
+\usepackage{fancyhdr} % header/footer
+\usepackage{graphicx} % for logos
+\usepackage{xcolor}   % colors
+\usepackage{tikz}     % figures
+\usepackage{nicefrac}
+\usepackage{multicol}
+\usepackage[most]{tcolorbox}
+
+\newtcbtheorem[auto counter,number within=section]{boxedtheorem}%
+  {Theorem}{fonttitle=\bfseries\upshape, fontupper=\slshape,
+     arc=0mm, colback=blue!5!white,colframe=blue!75!black}{theorem}
+
+\newtcbtheorem[auto counter,number within=section]{boxeddefinition}%
+  {Definition}{fonttitle=\bfseries\upshape, fontupper=\slshape,
+     arc=0mm, colback=yellow!5!white,colframe=yellow!75!black}{definition}
+
+%% To use cleveref, we need to define the labels for the new implicit counters created by tcb
+\crefname{tcb@cnt@boxedtheorem}{Theorem}{Theorems}
+\crefname{tcb@cnt@boxeddefinition}{Definition}{Definitions}
+
+% Custom theorem styles
+% \newtheoremstyle{break}
+%   {\topsep}{\topsep}%
+%   {\itshape}{}%
+%   {\bfseries}{}%
+%   {\newline}{}%
+
+\newtheoremstyle{break}% name of the style to be used
+  {\topsep}% measure of space to leave above the theorem. E.g.: 3pt
+  {\topsep}% measure of space to leave below the theorem. E.g.: 3pt
+  {\upshape}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {---}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\textnormal{\thmnote{ (#3)}}}
+
+
+\theoremstyle{break}
+\newtheorem{exercise}{Question}
+
+
+% Custom enumerate labels
+\renewcommand{\labelenumi}{\alph{enumi})}
+
+
+
+\newenvironment{solution}[1][]
+{
+    \par\medskip
+    \noindent\textbf{\textcolor{blue}{Solution%
+        \if\relax\detokenize{#1}\relax\else\ (#1) ---\fi}}%
+    \par\medskip
+    \par\noindent\color{blue}
+}
+{
+    \par\medskip\normalcolor
+}
+
+
+\newcommand{\solutionqcm}[1]{\ifhidesolutions {\color{black}{#1}} \else {\color{blue}{#1}} \fi }
+
+
+
+% ---------- Shortcuts ----------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\inv}[1]{#1^{\text{-}1}}
+
+
+% ---------- Header ----------
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{\includegraphics[height=1.4cm]{images/logopsl.png}}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{\thepage}
+
+
+
+% ---------- Title ----------
+\title{\vspace{-1.2cm} Algebra II 2025 - Question bank} %\\[0.5em]
+% \large Algebra I}
+\author{Instructor: Lucas GNECCO HEREDIA}
+% \date{\today}
+% \date{February 04, 2026}
+
+% ---------- Document ----------
+\begin{document}
+\maketitle 
+\thispagestyle{fancy}
+
+
+
+\section*{Instructions}
+\begin{itemize}[itemsep=0.05em]
+    \item You can include a problem or a solution to any problem you want.
+    \item To include a problem, use the \verb|exercise| environment, and add a name to the problem that summarizes the main idea of the exercise. It is optional, but recommended
+    \item When including a solution, use the \verb|solution| environment. You can add your name or some identifier that you prefer in order to differentiate multiple solutions to the same exercise. Use any text you want as identifier, as long as it is not offensive.
+    \item See the problem folders for examples.  
+\end{itemize}
+
+
+
+
+\section{Review on orthogonality}
+
+\input{problems/problem_001.tex}
+
+
+\end{document}

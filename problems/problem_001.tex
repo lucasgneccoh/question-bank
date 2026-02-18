@@ -1,0 +1,55 @@
+
+\begin{exercise}[The nullspace is orthogonal to the rowspace]
+
+    Let $A$ be a matrix of size $m \times n$ with real coefficients. Let $N(A)$ and $R(A)$ denote the nullspace and rowspace of $A$ respectively.
+    
+    Show that $N(A) \perp R(A)$.
+
+    \begin{solution}[Student 1]
+        Suppose $x \in N(A)$ and $y \in R(A)$. We have that
+        \begin{equation}\label{problem001:eq1}
+            x \in N(A) \implies Ax = 0 \implies x^t A^t = 0^t.
+        \end{equation}
+        On the other hand,
+        \begin{equation}\label{problem001:eq2}
+            y \in R(A) \implies \exists z \in \R^m, \quad \text{s.t.} y = A^t z.
+        \end{equation}
+
+        We now compute $x \cdot y$ as follows:
+        \begin{equation*}
+            \begin{array}{clr}
+                x \cdot y & = x^t y & \\
+                & = x^t A^t z & \text{(by~\eqref{problem001:eq2})} \\
+                & = 0^t z & \text{(by~\eqref{problem001:eq1})} \\
+                & = 0. &  \\
+            \end{array}
+        \end{equation*}
+
+        As this is valid for arbitrary $x \in N(A)$ and $y \in R(A)$, we conclude that $N(A) \perp R(A)$.
+        
+    \end{solution}
+
+
+    \begin{solution}[Student 2]
+        Suppose $x \in N(A)$ and $y \in R(A)$. We have that
+        
+        As $x \in N(A)$, we know that $Ax = 0$.
+        Let $r_1, \dots, r_m$ be the rows of $A$.
+        Using the row picture of matrix-vector multiplication, we have that $Ax =0$ implies that $r_i \cdot x = 0$ for all $i \in [m]$.
+        
+        On the other hand, as $y \in R(A)$, which is spanned by the vectors $r_1, \dots, r_m$, there must exist scalars $\alpha_1, \dots, \alpha_m$ such that $y = \sum_{i=1}^{m} \alpha_i r_i$.
+
+        Then, if we compute $x \cdot y$ we obtain:
+        \begin{equation*}
+            \begin{array}{clr}
+                x \cdot y & = x \cdot \left( \sum_{i=1}^{m} \alpha_i r_i  \right)& \\
+               & = \sum_{i=1}^{m} \alpha_i (x \cdot r_i) & \text{by linearity of the dot product} \\
+               & = \sum_{i=1}^{m} \alpha_i (0) & \text{because $x \in N(A)$} \\
+               & = 0 &
+            \end{array}
+        \end{equation*}
+        
+        As this is valid for arbitrary $x \in N(A)$ and $y \in R(A)$, we conclude that $N(A) \perp R(A)$.
+        
+    \end{solution}
+\end{exercise}
