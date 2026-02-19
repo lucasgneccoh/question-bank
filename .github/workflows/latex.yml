@@ -1,26 +1,23 @@
-name: Build LaTeX PDF (minimal)
+name: Build LaTeX PDF
 
 on:
-  pull_request:
   push:
+  pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Install pdflatex
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            texlive-latex-base \
-            texlive-latex-recommended
-
-      - name: Compile (2 passes for references)
-        run: |
-          pdflatex -interaction=nonstopmode -halt-on-error -file-line-error main.tex
-          pdflatex -interaction=nonstopmode -halt-on-error -file-line-error main.tex
+      - name: Compile LaTeX to PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex     # change this if needed
+          latexmk_use_xelatex: false   # set true if you need XeLaTeX
+          latexmk_use_lualatex: false  # set true if you need LuaLaTeX
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
