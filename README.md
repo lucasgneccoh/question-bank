@@ -9,15 +9,15 @@ Only the instructor can merge pull requests into the main branch.
 
 ## How to contribute
 
-1. **Fork** the repository if this is not done automatically by Github Classroom.
-2. Clone your fork or edit directly on GitHub.
-3. Add a new file in the `problems/` directory: `problems/myproblem.tex`.
-4. Write your problem and solution inside the file.
-5. Open `main.tex` and include your file using:
+1. Clone your fork or edit directly on GitHub.
+2. Add a new file in the `problems/` directory: `problems/myproblem.tex`.
+3. Write your problem and solution inside the file.
+4. Open `main.tex` and include your file using:
 ```tex
-\input{problems/myproblem.tex}
+\input{problems/problem_001.tex}
 ```
-6. Commit your changes.
-7. Open a **Pull Request** to the main repository.
-8. The instructor will review and merge it.
+5. Commit your changes.
+6. Open a **Pull Request** to the main repository.
+7. The instructor will review and merge it.
+
 
